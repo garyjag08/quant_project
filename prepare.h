@@ -15,6 +15,8 @@ using namespace std;
 struct StockData {
     // Basic OHLC data
     float open = 0, high = 0, low = 0, close = 0;
+    // SMA
+    float sma_20 = 0, sma_50 = 0, sma_100 = 0;
 };
 
 /*
@@ -24,6 +26,7 @@ class StockAttributes{
     public:
         StockAttributes(); // default contructor
         void readData(string filename); // method to read in csv file
+        float computeSMA(int index, int period); // method to compute Simple Moving Average
         ~StockAttributes(); // destructor
     private:
         vector<StockData> stockData;

@@ -32,4 +32,13 @@ void StockAttributes::readData(string filename){
     }
 }
 
+float StockAttributes::computeSMA(int index, int period){
+    if(index + 1 < period) return 0.0f;
+    float sum = 0.0f;
+    for(int i = index - period + 1; i <= index; i++){
+        sum += stockData[i].close;
+    }
+    return sum / period;
+}
+
 StockAttributes::~StockAttributes(){} // destructor
